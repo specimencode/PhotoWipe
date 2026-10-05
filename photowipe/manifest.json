@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "PhotoWipe – Bulk Cleaner for Google Photos",
+  "short_name": "PhotoWipe",
+  "version": "1.0.0",
+  "description": "Bulk move Google Photos to the trash, or restore them from it, in one click. Runs locally, no data collected.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "popup/popup.html",
+    "open_in_tab": true
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://photos.google.com/?photowipe*",
+        "https://photos.google.com/u/*/?photowipe*",
+        "https://photos.google.com/archive?photowipe*",
+        "https://photos.google.com/u/*/archive?photowipe*",
+        "https://photos.google.com/trash?photowipe*",
+        "https://photos.google.com/u/*/trash?photowipe*"
+      ],
+      "js": ["content/wipe.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

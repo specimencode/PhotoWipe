@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PhotoWipe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <img src="../icons/icon32.png" alt="" width="22" height="22" />
+      <span class="name">photowipe</span>
+    </header>
+
+    <section class="block">
+      <h2>action</h2>
+      <div class="seg" id="mode">
+        <button data-value="delete">delete</button>
+        <button data-value="restore">restore</button>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>how many</h2>
+      <div class="seg" id="presets">
+        <button data-value="100">100</button>
+        <button data-value="500">500</button>
+        <button data-value="1000">1000</button>
+        <button data-value="all">all</button>
+      </div>
+      <input id="amount" class="input" type="number" min="1" step="1" inputmode="numeric" placeholder="custom amount" />
+      <p class="sub" id="order-hint">most recent photos are removed first.</p>
+    </section>
+
+    <section class="block" id="source-block">
+      <h2>from</h2>
+      <div class="seg" id="source">
+        <button data-value="library">library</button>
+        <button data-value="archive">archive</button>
+      </div>
+    </section>
+
+    <button class="start" id="start">start</button>
+    <p class="sub center" id="summary"></p>
+
+    <footer class="foot">
+      <span id="stats">0 moved to trash</span>
+      <span>runs locally, nothing is collected.</span>
+    </footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
